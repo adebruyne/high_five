@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import '../css/Home.css';
 
 let data = require("../data/mockData.json")
 console.log(data)
@@ -15,7 +15,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="home">
                 <p>This is the Home</p>
             </div>
         )
