@@ -1,0 +1,27 @@
+{
+    "companies": [
+        {
+            "id": 1,
+            "company_name": "Schmoogle",
+            "company_address": {
+                "street": "123 Hiker Lane",
+                "city": "Stehekin",
+                "state": "Washington",
+                "zip": "21389"
+            },
+            "company_phone": "828-987-6543",
+            "company_contact": {
+                "name": "Ryan Southbound",
+                "phone_number": "567-987-0438",
+                "email": "r.southbound@faker.com"
+            },
+            "status": "researching",
+            "finance": [
+                {
+                    "year": "2010",
+                    "profit": "209876"
+                }
+            ]
+        }
+    ]
+}
