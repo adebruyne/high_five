@@ -2,7 +2,7 @@
     "companies": [
         {
             "id": 1,
-            "company_name": "Schmoogle",
+            "company_name": "Maps & Co.",
             "company_address": {
                 "street": "123 Hiker Lane",
                 "city": "Stehekin",
@@ -19,9 +19,42 @@
             "finance": [
                 {
                     "year": "2010",
-                    "profit": "209876"
+                    "profit": "10102250"
+                },
+                {
+                    "year": "2011",
+                    "profit": "59608623"
+                },
+                {
+                    "year": "2012",
+                    "profit": "21123013"
+                },
+                {
+                    "year": "2013",
+                    "profit": "84790713"
+                },
+                {
+                    "year": "2014",
+                    "profit": "17464641"
+                },
+                {
+                    "year": "2015",
+                    "profit": "87863196"
+                },
+                {
+                    "year": "2016",
+                    "profit": "21857653"
+                },
+                {
+                    "year": "2017",
+                    "profit": "58093613"
+                },
+                {
+                    "year": "2018",
+                    "profit": "98795991"
                 }
-            ]
+            ],
+            "current_profit": "20204744"
         }
     ]
 }
