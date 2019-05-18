@@ -17,7 +17,8 @@ class CompanyDetailHolder extends Component {
                     phone={this.props.currentCompany.company_phone}
                 />
                 <CompanyContacts
-                    contact={this.props.company_contact} />
+                    contact={this.props.currentCompany.company_contact}
+                />
             </div>
         )
     }
