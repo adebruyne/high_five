@@ -36,23 +36,52 @@ class Home extends Component {
                 <p>This is the Home</p>
                 {this.state.isEdit ?
                     (<form onSubmit={this.onEditSubmit.bind(this)}>
-                        <input type="text" placeholder={theCurrentCompany.company_name}
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_name}
                             defaultValue={theCurrentCompany.company_name}
                             ref="company_name" />
                         <br />
-                        <input type="text" placeholder="Steet" ref="street" />
-                        <input type="text" placeholder="City" ref="city" />
-                        <input type="text" placeholder="State" ref="state" />
-                        <input type="text" placeholder="Zipcode" ref="zip" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.street}
+                            defaultValue={theCurrentCompany.company_address.street}
+                            ref="street" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.city}
+                            defaultValue={theCurrentCompany.company_address.city}
+                            ref="city" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.state}
+                            defaultValue={theCurrentCompany.company_address.state}
+                            ref="state" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.zip}
+                            defaultValue={theCurrentCompany.company_address.zip}
+                            ref="zip" />
                         <br />
-                        <input type="text" placeholder="Company Phone Number" ref="company_phone" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_phone}
+                            defaultValue={theCurrentCompany.company_phone}
+                            ref="company_phone" />
                         <br />
-                        <input type="text" placeholder="Contact Name" ref="name" />
-                        <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
-                        <input type="text" placeholder="Contact Email" ref="email" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.name}
+                            defaultValue={theCurrentCompany.company_contact.name}
+                            ref="name" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.phone_number}
+                            defaultValue={theCurrentCompany.company_contact.phone_number}
+                            ref="phone_number" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.email}
+                            defaultValue={theCurrentCompany.company_contact.email}
+                            ref="email" />
                         <br />
                         <label>Select Status:
-                      <select placeholder="Status" ref="status">
+                      <select
+                                placeholder={theCurrentCompany.status}
+                                defaultValue={theCurrentCompany.status}
+
+                                ref="status">
                                 <option value="researching">Researching</option>
                                 <option value="pending">Pending</option>
                                 <option value="approved">Approved</option>
@@ -60,7 +89,11 @@ class Home extends Component {
                             </select>
                         </label>
                         <br />
-                        <input type="text" placeholder="Current Profit" ref="current_profit" />
+                        <input
+                            type="text"
+                            placeholder={theCurrentCompany.current_profit}
+                            defaultValue={theCurrentCompany.current_profit}
+                            ref="current_profit" />
 
                         <button type="submit">Save</button>
                     </form>)
@@ -198,16 +231,30 @@ class Home extends Component {
         let id = this.state.selectedCompany
         console.log(id)
         let newUpdatedCompanies = this.state.data
-        newUpdatedCompanies = newUpdatedCompanies.map(co => {
-            if (co.id === id) {
-                co.company_name = this.refs.company_name.value
-
+        newUpdatedCompanies = newUpdatedCompanies.map(company => {
+            if (company.id === id) {
+                company.company_name = this.refs.company_name.value
+                company.company_address = {
+                    street: this.refs.street.value,
+                    city: this.refs.city.value,
+                    state: this.refs.state.value,
+                    zip: this.refs.zip.value
+                }
+                company.company_phone = this.refs.company_phone.value;
+                company.company_contact = {
+                    name: this.refs.name.value,
+                    phone_number: this.refs.phone_number.value,
+                    email: this.refs.email.value
+                };
+                company.status = this.refs.status.value;
+                company.current_profit = this.refs.current_profit.value
             }
-            return co
+            return company
         });
 
         this.setState({
-            data: newUpdatedCompanies
+            data: newUpdatedCompanies,
+            isEdit: false
         })
 
     }
