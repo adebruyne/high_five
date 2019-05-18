@@ -11,9 +11,11 @@ class CompaniesList extends Component {
             console.log(company);
             return < CompanyListItem
                 key={company.id}
+                id={company.id}
                 companyName={company.company_name}
                 status={company.status}
-                currentProfit={company.current_profit} />
+                currentProfit={company.current_profit}
+                handleClick={this.props.handleCompanySelection} />
         })
 
         return (

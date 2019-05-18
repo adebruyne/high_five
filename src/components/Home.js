@@ -10,18 +10,29 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedCompany: mockData.companies[0].id,
             data: mockData
         }
     }
 
     render() {
+
         return (
             <div className="home">
                 <p>This is the Home</p>
                 <CompaniesList
-                    companies={this.state.data.companies} />
+                    companies={this.state.data.companies}
+                    handleCompanySelection={this._selectCompany} />
             </div>
         )
+    }
+
+    _selectCompany = (id) => {
+        // choose a note to show
+        console.log(`you clicked ${id} `)
+        this.setState({
+            selectedCompany: id
+        });
     }
 }
 
