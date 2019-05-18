@@ -14,9 +14,9 @@ class Home extends Component {
         this.state = {
             selectedCompany: 1,
             data: mockData.companies,
-            shouldDisplayForm: false
+            shouldDisplayForm: false,
+        };
 
-        }
     }
 
 
@@ -35,12 +35,44 @@ class Home extends Component {
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete} />
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     this._handleAdd()
                 }}
-                >Add a new company</button>
+                >Add a new company</button> */}
 
-                {this.state.shouldDisplayForm ? <NewCompanyForm /> : null}
+                {/* {this.state.shouldDisplayForm ? <NewCompanyForm
+                    changes={this.handleChange}
+                /> : null} */}
+                {/* <NewCompanyForm
+                    compData={this.state.newCompany}
+                    onChange={event => this._onChange(event.target.value)} /> */}
+                <form onSubmit={this.addCompany.bind(this)}>
+                    <input type="text" placeholder="Company Name" ref="company_name" />
+                    <br />
+                    <input type="text" placeholder="Steet" ref="street" />
+                    <input type="text" placeholder="City" ref="city" />
+                    <input type="text" placeholder="State" ref="state" />
+                    <input type="text" placeholder="Zipcode" ref="zip" />
+                    <br />
+                    <input type="text" placeholder="Company Phone Number" ref="company_phone" />
+                    <br />
+                    <input type="text" placeholder="Contact Name" ref="name" />
+                    <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
+                    <input type="text" placeholder="Contact Email" ref="email" />
+                    <br />
+                    <label>Select Status:
+                        <select placeholder="Status" ref="status">
+                            <option value="researching">Researching</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="declined">Declined</option>
+                        </select>
+                    </label>
+                    <br />
+                    <input type="text" placeholder="Current Profit" ref="current_profit" />
+
+                    <button type="submit">Add company</button>
+                </form>
                 <CompaniesList
                     companies={this.state.data}
                     handleCompanySelection={this._selectCompany}
@@ -54,7 +86,7 @@ class Home extends Component {
 
     _selectCompany = (id) => {
         // choose a note to show
-        // console.log(`you clicked ${id} `)
+        console.log(`you clicked ${id} `)
         this.setState({
             selectedCompany: id
         });
@@ -81,6 +113,34 @@ class Home extends Component {
         })
 
     }
+
+    addCompany(event) {
+        event.preventDefault();
+        let id = Math.floor((Math.random() * 1000) + 1);
+        let company_name = this.refs.company_name.value;
+        let company_address = {
+            street: this.refs.street.value,
+            city: this.refs.city.value,
+            state: this.refs.state.value,
+            zip: this.refs.zip.value
+        };
+        let company_phone = this.refs.company_phone.value;
+        let company_contact = {
+            name: this.refs.name.value,
+            phone_number: this.refs.phone_number.value,
+            email: this.refs.email.value
+        };
+        let status = this.refs.status.value;
+        let current_profit = this.refs.current_profit.value
+        this.setState({
+            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit })
+        })
+        console.log(this.state.data)
+        this.refs.company_name.value = ''
+    }
+
+
+
 
 }
 
