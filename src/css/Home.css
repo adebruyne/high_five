@@ -1,3 +1,25 @@
 .home {
    border:2px hotpink solid  
 }
+
+.main-holder{
+   border: 2px green solid
+}
+
+.add-btn {
+   border: 2px rgb(51,52,53) solid;
+   background-color: rgb(12,159,255);
+  color: black;
+  border-radius: 12px;
+  padding: 10px;
+  color: white;
+  font-size:20px;
+  
+ 
+}
+
+.btn-container {
+   display:flex;
+   justify-content: center;
+   padding: 10px;
+}
