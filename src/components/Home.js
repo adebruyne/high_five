@@ -34,7 +34,8 @@ class Home extends Component {
                 <p>This is the Home</p>
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
-                    handleCompanyDelete={this._handleDelete} />
+                    handleCompanyDelete={this._handleDelete}
+                    handleCompanyEdit={this._handleEdit} />
                 {/* <button onClick={() => {
                     this._handleAdd()
                 }}
@@ -105,6 +106,10 @@ class Home extends Component {
         })
     }
 
+    _handleEdit = (id) => {
+        console.log(`${id} this to be edited`)
+    }
+
     // Handling adding functionality
     _handleAdd = () => {
         console.log('adding clicked')
@@ -114,6 +119,7 @@ class Home extends Component {
 
     }
 
+    //Handings adding new Company form
     addCompany(event) {
         event.preventDefault();
         let id = Math.floor((Math.random() * 1000) + 1);
