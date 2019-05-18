@@ -2,32 +2,24 @@ import React, { Component } from 'react'
 import '../css/Home.css';
 import CompaniesList from './CompaniesList';
 
+// Pulls in mock json data
+let mockData = require("../data/mockData.json")
+
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: mockData
         }
     }
 
-    componentDidMount() {
-        let data = require("../data/mockData.json")
-        console.log(data)
-        // console.log(data.companies[0].company_name)
-        this.setState({
-            data: data
-        })
-
-    }
-
-
     render() {
-        console.log(this.state)
         return (
             <div className="home">
                 <p>This is the Home</p>
-                <CompaniesList />
+                <CompaniesList
+                    companies={this.state.data.companies} />
             </div>
         )
     }
