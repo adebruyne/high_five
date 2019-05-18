@@ -11,25 +11,16 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedCompany: mockData.companies[0].id,
-            data: mockData,
-            list_ids: []
+            selectedCompany: 1,
+            data: mockData.companies,
         }
-    }
-
-    componentDidMount() {
-        const comps = mockData.companies.map(comp => comp.id)
-        console.log(comps)
-        this.setState({
-            list_ids: comps
-        })
     }
 
 
 
     render() {
-
-        const theCurrentCompany = this.state.data.companies.find(theOne => {
+        console.log(this.state.selectedCompany)
+        const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
         return (
@@ -40,7 +31,7 @@ class Home extends Component {
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete} />
                 <CompaniesList
-                    companies={this.state.data.companies}
+                    companies={this.state.data}
                     handleCompanySelection={this._selectCompany} />
             </div>
         )
@@ -59,10 +50,13 @@ class Home extends Component {
 
     _handleDelete = (id) => {
         console.log(`${id} to be deleted`)
-        console.log(this.state.data.companies)
-        // companies = this.state.data.companies
+        console.log(this.state.data)
+        let newList = this.state.data.filter(company => company.id !== id)
+        console.log(newList)
+
         this.setState({
-            data: this.state.data.companies.filter(company => company.id != id)
+            data: newList,
+            selectedCompany: newList[0].id
         })
     }
 }

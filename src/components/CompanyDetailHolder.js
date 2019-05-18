@@ -5,7 +5,7 @@ import CompanyContacts from './CompanyContacts';
 
 class CompanyDetailHolder extends Component {
     render() {
-        console.log(this.props.currentCompany)
+        // console.log(this.props.currentCompany)
         return (
             <div className='company-detail-holder'>
                 <h1>Company Detail Holder</h1>
