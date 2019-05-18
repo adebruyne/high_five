@@ -5,7 +5,9 @@ class CompaniesListItem extends Component {
     render() {
         return (
             <div className="single-company">
-                <p>Single Company</p>
+                <h2>{this.props.companyName}</h2>
+                <h4>Status: {this.props.status}</h4>
+                <h5>Current Profit: ${this.props.currentProfit}</h5>
             </div>
         )
     }

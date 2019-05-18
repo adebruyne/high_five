@@ -11,9 +11,9 @@ class CompaniesList extends Component {
             console.log(company);
             return < CompanyListItem
                 key={company.id}
-                company_name={company.company_name}
+                companyName={company.company_name}
                 status={company.status}
-                current_profit={company.current_profit} />
+                currentProfit={company.current_profit} />
         })
 
         return (
