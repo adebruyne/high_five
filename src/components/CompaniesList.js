@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/CompaniesList.css';
 import CompanyListItem from './CompaniesListItem';
 
+
 // This component will house the list of companies
 class CompaniesList extends Component {
 
@@ -21,6 +22,8 @@ class CompaniesList extends Component {
         return (
             <div className="companies-list ">
                 <p>This is the Company List holder</p>
+
+
                 <ul>
                     {allCompanies}
                 </ul>
