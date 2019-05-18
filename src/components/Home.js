@@ -12,24 +12,15 @@ class Home extends Component {
         super(props);
         this.state = {
             selectedCompany: mockData.companies[0].id,
-            data: mockData,
-            list_ids: []
+            data: mockData.companies,
         }
-    }
-
-    componentDidMount() {
-        const comps = mockData.companies.map(comp => comp.id)
-        console.log(comps)
-        this.setState({
-            list_ids: comps
-        })
     }
 
 
 
     render() {
-
-        const theCurrentCompany = this.state.data.companies.find(theOne => {
+        console.log(this.state.data)
+        const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
         return (
@@ -39,9 +30,9 @@ class Home extends Component {
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete} />
-                <CompaniesList
+                {/* <CompaniesList
                     companies={this.state.data.companies}
-                    handleCompanySelection={this._selectCompany} />
+                    handleCompanySelection={this._selectCompany} /> */}
             </div>
         )
     }
@@ -57,14 +48,14 @@ class Home extends Component {
         });
     }
 
-    _handleDelete = (id) => {
-        console.log(`${id} to be deleted`)
-        console.log(this.state.data.companies)
-        // companies = this.state.data.companies
-        this.setState({
-            data: this.state.data.companies.filter(company => company.id != id)
-        })
-    }
+    // _handleDelete = (id) => {
+    //     console.log(`${id} to be deleted`)
+    //     console.log(this.state.data.companies)
+    //     // companies = this.state.data.companies
+    //     this.setState({
+    //         data: this.state.data.companies.filter(company => company.id != id)
+    //     })
+    // }
 }
 
 export default Home;
