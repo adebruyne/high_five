@@ -3,9 +3,11 @@ import '../css/CompanyContacts.css';
 
 class CompanyContacts extends Component {
     render() {
+
         return (
             <div className="company-contacts">
-                <p>here go the contacts</p>
+                <h6>Contact</h6>
+                <p>Name: </p>
             </div>
         )
     }

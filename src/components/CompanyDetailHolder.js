@@ -10,8 +10,14 @@ class CompanyDetailHolder extends Component {
             <div className='company-detail-holder'>
                 <h1>Company Detail Holder</h1>
                 <h2>{this.props.currentCompany.company_name}</h2>
-                <CompanyDetails />
-                <CompanyContacts />
+                <CompanyDetails
+                    status={this.props.currentCompany.status}
+                    currentProfit={this.props.currentCompany.current_profit}
+                    address={this.props.currentCompany.company_address}
+                    phone={this.props.currentCompany.company_phone}
+                />
+                <CompanyContacts
+                    contact={this.props.company_contact} />
             </div>
         )
     }
