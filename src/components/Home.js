@@ -11,7 +11,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedCompany: mockData.companies[0].id,
+            selectedCompany: 1,
             data: mockData.companies,
         }
     }
@@ -19,7 +19,7 @@ class Home extends Component {
 
 
     render() {
-        console.log(this.state.data)
+        console.log(this.state.selectedCompany)
         const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
@@ -48,14 +48,17 @@ class Home extends Component {
         });
     }
 
-    // _handleDelete = (id) => {
-    //     console.log(`${id} to be deleted`)
-    //     console.log(this.state.data.companies)
-    //     // companies = this.state.data.companies
-    //     this.setState({
-    //         data: this.state.data.companies.filter(company => company.id != id)
-    //     })
-    // }
+    _handleDelete = (id) => {
+        console.log(`${id} to be deleted`)
+        console.log(this.state.data)
+        let newList = this.state.data.filter(company => company.id !== id)
+        console.log(newList)
+
+        this.setState({
+            data: newList,
+            selectedCompany: newList[0].id
+        })
+    }
 }
 
 export default Home;
