@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import '../css/CompanyDetailHolder.css'
+import '../css/CompanyDetailHolder.css';
+import CompanyDetails from './CompanyDetails';
+import CompanyContacts from './CompanyContacts';
 
 class CompanyDetailHolder extends Component {
     render() {
@@ -7,6 +9,9 @@ class CompanyDetailHolder extends Component {
         return (
             <div className='company-detail-holder'>
                 <h1>Company Detail Holder</h1>
+                <h2>{this.props.currentCompany.company_name}</h2>
+                <CompanyDetails />
+                <CompanyContacts />
             </div>
         )
     }
