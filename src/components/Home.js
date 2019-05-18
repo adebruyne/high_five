@@ -136,7 +136,17 @@ class Home extends Component {
             data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit })
         })
         console.log(this.state.data)
-        this.refs.company_name.value = ''
+        this.refs.company_name.value = '';
+        this.refs.street.value = '';
+        this.refs.city.value = '';
+        this.refs.state.value = '';
+        this.refs.zip.value = '';
+        this.refs.company_phone.value = '';
+        this.refs.name.value = '';
+        this.refs.phone_number.value = '';
+        this.refs.email.value = '';
+        this.refs.email.value = '';
+        this.refs.current_profit.value = ''
     }
 
 
