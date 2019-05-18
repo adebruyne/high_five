@@ -30,9 +30,9 @@ class Home extends Component {
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete} />
-                {/* <CompaniesList
-                    companies={this.state.data.companies}
-                    handleCompanySelection={this._selectCompany} /> */}
+                <CompaniesList
+                    companies={this.state.data}
+                    handleCompanySelection={this._selectCompany} />
             </div>
         )
     }
