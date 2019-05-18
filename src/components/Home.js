@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../css/Home.css';
 import CompaniesList from './CompaniesList';
 import CompanyDetailHolder from './CompanyDetailHolder';
+import NewCompanyForm from './NewCompanyForm';
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
@@ -13,16 +14,20 @@ class Home extends Component {
         this.state = {
             selectedCompany: 1,
             data: mockData.companies,
+            shouldDisplayForm: false
+
         }
     }
 
 
 
     render() {
-        console.log(this.state.selectedCompany)
+        // console.log(this.state.selectedCompany)
         const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
+
+
         return (
 
             <div className="home">
@@ -30,10 +35,16 @@ class Home extends Component {
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete} />
+                <button onClick={() => {
+                    this._handleAdd()
+                }}
+                >Add a new company</button>
+
+                {this.state.shouldDisplayForm ? <NewCompanyForm /> : null}
                 <CompaniesList
                     companies={this.state.data}
                     handleCompanySelection={this._selectCompany}
-                    handleAddingCompany={this._handleAdd} />
+                />
             </div>
         )
     }
@@ -65,6 +76,10 @@ class Home extends Component {
     // Handling adding functionality
     _handleAdd = () => {
         console.log('adding clicked')
+        this.setState({
+            shouldDisplayForm: true
+        })
+
     }
 
 }
