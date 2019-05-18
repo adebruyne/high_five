@@ -32,7 +32,8 @@ class Home extends Component {
                     handleCompanyDelete={this._handleDelete} />
                 <CompaniesList
                     companies={this.state.data}
-                    handleCompanySelection={this._selectCompany} />
+                    handleCompanySelection={this._selectCompany}
+                    handleAddingCompany={this._handleAdd} />
             </div>
         )
     }
@@ -42,23 +43,30 @@ class Home extends Component {
 
     _selectCompany = (id) => {
         // choose a note to show
-        console.log(`you clicked ${id} `)
+        // console.log(`you clicked ${id} `)
         this.setState({
             selectedCompany: id
         });
     }
 
+    //Handles deleting functionality
     _handleDelete = (id) => {
-        console.log(`${id} to be deleted`)
-        console.log(this.state.data)
+        // console.log(`${id} to be deleted`)
+        // console.log(this.state.data)
+        // creates a new array of all companys expcept for the one selected, removing that one from the list
         let newList = this.state.data.filter(company => company.id !== id)
-        console.log(newList)
-
+        // console.log(newList)
         this.setState({
             data: newList,
             selectedCompany: newList[0].id
         })
     }
+
+    // Handling adding functionality
+    _handleAdd = () => {
+        console.log('adding clicked')
+    }
+
 }
 
 export default Home;
