@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/Home.css';
 import CompaniesList from './CompaniesList';
 import CompanyDetailHolder from './CompanyDetailHolder';
-import NewCompanyForm from './NewCompanyForm';
+
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
@@ -15,6 +15,7 @@ class Home extends Component {
             selectedCompany: 1,
             data: mockData.companies,
             shouldDisplayForm: false,
+            isEdit: false
         };
 
     }
@@ -27,52 +28,118 @@ class Home extends Component {
             return this.state.selectedCompany === theOne.id;
         })
 
+        console.log(theCurrentCompany)
 
         return (
 
             <div className="home">
                 <p>This is the Home</p>
-                <CompanyDetailHolder
-                    currentCompany={theCurrentCompany}
-                    handleCompanyDelete={this._handleDelete} />
-                {/* <button onClick={() => {
+                {this.state.isEdit ?
+                    (<form onSubmit={this.onEditSubmit.bind(this)}>
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_name}
+                            defaultValue={theCurrentCompany.company_name}
+                            ref="company_name" />
+                        <br />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.street}
+                            defaultValue={theCurrentCompany.company_address.street}
+                            ref="street" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.city}
+                            defaultValue={theCurrentCompany.company_address.city}
+                            ref="city" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.state}
+                            defaultValue={theCurrentCompany.company_address.state}
+                            ref="state" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_address.zip}
+                            defaultValue={theCurrentCompany.company_address.zip}
+                            ref="zip" />
+                        <br />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_phone}
+                            defaultValue={theCurrentCompany.company_phone}
+                            ref="company_phone" />
+                        <br />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.name}
+                            defaultValue={theCurrentCompany.company_contact.name}
+                            ref="name" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.phone_number}
+                            defaultValue={theCurrentCompany.company_contact.phone_number}
+                            ref="phone_number" />
+                        <input type="text"
+                            placeholder={theCurrentCompany.company_contact.email}
+                            defaultValue={theCurrentCompany.company_contact.email}
+                            ref="email" />
+                        <br />
+                        <label>Select Status:
+                      <select
+                                placeholder={theCurrentCompany.status}
+                                defaultValue={theCurrentCompany.status}
+
+                                ref="status">
+                                <option value="researching">Researching</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="declined">Declined</option>
+                            </select>
+                        </label>
+                        <br />
+                        <input
+                            type="text"
+                            placeholder={theCurrentCompany.current_profit}
+                            defaultValue={theCurrentCompany.current_profit}
+                            ref="current_profit" />
+
+                        <button type="submit">Save</button>
+                    </form>)
+                    : (
+                        <CompanyDetailHolder
+                            currentCompany={theCurrentCompany}
+                            handleCompanyDelete={this._handleDelete}
+                            handleCompanyEdit={this._handleEdit}
+                            isEdit={this.state.isEdit} />
+                    )}
+
+                <button onClick={() => {
                     this._handleAdd()
                 }}
-                >Add a new company</button> */}
+                >Add a new company</button>
 
-                {/* {this.state.shouldDisplayForm ? <NewCompanyForm
-                    changes={this.handleChange}
-                /> : null} */}
-                {/* <NewCompanyForm
-                    compData={this.state.newCompany}
-                    onChange={event => this._onChange(event.target.value)} /> */}
-                <form onSubmit={this.addCompany.bind(this)}>
-                    <input type="text" placeholder="Company Name" ref="company_name" />
-                    <br />
-                    <input type="text" placeholder="Steet" ref="street" />
-                    <input type="text" placeholder="City" ref="city" />
-                    <input type="text" placeholder="State" ref="state" />
-                    <input type="text" placeholder="Zipcode" ref="zip" />
-                    <br />
-                    <input type="text" placeholder="Company Phone Number" ref="company_phone" />
-                    <br />
-                    <input type="text" placeholder="Contact Name" ref="name" />
-                    <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
-                    <input type="text" placeholder="Contact Email" ref="email" />
-                    <br />
-                    <label>Select Status:
+                {this.state.shouldDisplayForm ?
+                    (<form onSubmit={this.addCompany.bind(this)}>
+                        <input type="text" placeholder="Company Name" ref="company_name" />
+                        <br />
+                        <input type="text" placeholder="Steet" ref="street" />
+                        <input type="text" placeholder="City" ref="city" />
+                        <input type="text" placeholder="State" ref="state" />
+                        <input type="text" placeholder="Zipcode" ref="zip" />
+                        <br />
+                        <input type="text" placeholder="Company Phone Number" ref="company_phone" />
+                        <br />
+                        <input type="text" placeholder="Contact Name" ref="name" />
+                        <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
+                        <input type="text" placeholder="Contact Email" ref="email" />
+                        <br />
+                        <label>Select Status:
                         <select placeholder="Status" ref="status">
-                            <option value="researching">Researching</option>
-                            <option value="pending">Pending</option>
-                            <option value="approved">Approved</option>
-                            <option value="declined">Declined</option>
-                        </select>
-                    </label>
-                    <br />
-                    <input type="text" placeholder="Current Profit" ref="current_profit" />
+                                <option value="researching">Researching</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="declined">Declined</option>
+                            </select>
+                        </label>
+                        <br />
+                        <input type="text" placeholder="Current Profit" ref="current_profit" />
 
-                    <button type="submit">Add company</button>
-                </form>
+                        <button type="submit">Add company</button>
+                    </form>) : null}
+
+
                 <CompaniesList
                     companies={this.state.data}
                     handleCompanySelection={this._selectCompany}
@@ -105,6 +172,15 @@ class Home extends Component {
         })
     }
 
+    _handleEdit = (id) => {
+        console.log(`${id} this to be edited`)
+        this.setState({
+            isEdit: true
+        })
+    }
+
+
+
     // Handling adding functionality
     _handleAdd = () => {
         console.log('adding clicked')
@@ -114,6 +190,7 @@ class Home extends Component {
 
     }
 
+    //Handings adding new Company form
     addCompany(event) {
         event.preventDefault();
         let id = Math.floor((Math.random() * 1000) + 1);
@@ -149,6 +226,38 @@ class Home extends Component {
         this.refs.current_profit.value = ''
     }
 
+    onEditSubmit(event) {
+        event.preventDefault();
+        let id = this.state.selectedCompany
+        console.log(id)
+        let newUpdatedCompanies = this.state.data
+        newUpdatedCompanies = newUpdatedCompanies.map(company => {
+            if (company.id === id) {
+                company.company_name = this.refs.company_name.value
+                company.company_address = {
+                    street: this.refs.street.value,
+                    city: this.refs.city.value,
+                    state: this.refs.state.value,
+                    zip: this.refs.zip.value
+                }
+                company.company_phone = this.refs.company_phone.value;
+                company.company_contact = {
+                    name: this.refs.name.value,
+                    phone_number: this.refs.phone_number.value,
+                    email: this.refs.email.value
+                };
+                company.status = this.refs.status.value;
+                company.current_profit = this.refs.current_profit.value
+            }
+            return company
+        });
+
+        this.setState({
+            data: newUpdatedCompanies,
+            isEdit: false
+        })
+
+    }
 
 
 
