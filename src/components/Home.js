@@ -18,10 +18,15 @@ class Home extends Component {
 
     render() {
 
+        const theCurrentCompany = this.state.data.companies.find(theOne => {
+            return this.state.selectedCompany === theOne.id;
+        })
         return (
+
             <div className="home">
                 <p>This is the Home</p>
-                <CompanyDetailHolder />
+                <CompanyDetailHolder
+                    currentCompany={theCurrentCompany} />
                 <CompaniesList
                     companies={this.state.data.companies}
                     handleCompanySelection={this._selectCompany} />
