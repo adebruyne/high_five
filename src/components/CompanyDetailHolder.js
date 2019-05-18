@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/CompanyDetailHolder.css';
 import CompanyDetails from './CompanyDetails';
 import CompanyContacts from './CompanyContacts';
-
+import Chart from './Chart';
 class CompanyDetailHolder extends Component {
     constructor(props) {
         super(props);
@@ -33,6 +33,8 @@ class CompanyDetailHolder extends Component {
                     <CompanyContacts
                         contact={this.props.currentCompany.company_contact}
                     />
+                    <Chart
+                        profit={this.props.currentCompany.finance} />
                 </div>
             </div>
         )
