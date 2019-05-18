@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../css/Home.css';
 import CompaniesList from './CompaniesList';
+import CompanyDetailHolder from './CompanyDetailHolder';
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
@@ -20,6 +21,7 @@ class Home extends Component {
         return (
             <div className="home">
                 <p>This is the Home</p>
+                <CompanyDetailHolder />
                 <CompaniesList
                     companies={this.state.data.companies}
                     handleCompanySelection={this._selectCompany} />
