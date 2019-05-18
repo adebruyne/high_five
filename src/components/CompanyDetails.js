@@ -4,7 +4,7 @@ import '../css/CompanyDetails.css';
 // This Component displays the selected companies details
 class CompanyDetails extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div className="company-specifics">
                 <p>Status: {this.props.status}</p>

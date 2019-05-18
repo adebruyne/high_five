@@ -3,7 +3,7 @@ import '../css/CompanyContacts.css';
 
 class CompanyContacts extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div className="company-contacts">
                 <h6>Contact</h6>

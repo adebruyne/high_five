@@ -9,6 +9,10 @@ class CompanyDetailHolder extends Component {
         return (
             <div className='company-detail-holder'>
                 <h1>Company Detail Holder</h1>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    this.props.handleCompanyDelete(this.props.currentCompany.id)
+                }}>Delete this company</button>
                 <h2>{this.props.currentCompany.company_name}</h2>
                 <CompanyDetails
                     status={this.props.currentCompany.status}

@@ -26,7 +26,8 @@ class Home extends Component {
             <div className="home">
                 <p>This is the Home</p>
                 <CompanyDetailHolder
-                    currentCompany={theCurrentCompany} />
+                    currentCompany={theCurrentCompany}
+                    handleCompanyDelete={this._handleDelete} />
                 <CompaniesList
                     companies={this.state.data.companies}
                     handleCompanySelection={this._selectCompany} />
@@ -40,6 +41,10 @@ class Home extends Component {
         this.setState({
             selectedCompany: id
         });
+    }
+
+    _handleDelete = (id) => {
+        console.log(`${id} to be deleted`)
     }
 }
 
