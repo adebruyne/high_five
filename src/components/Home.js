@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/Home.css';
 import CompaniesList from './CompaniesList';
 import CompanyDetailHolder from './CompanyDetailHolder';
-import NewCompanyForm from './NewCompanyForm';
+
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
@@ -33,49 +33,49 @@ class Home extends Component {
 
             <div className="home">
                 <p>This is the Home</p>
-                <CompanyDetailHolder
-                    currentCompany={theCurrentCompany}
-                    handleCompanyDelete={this._handleDelete}
-                    handleCompanyEdit={this._handleEdit}
-                    isEdit={this.state.isEdit} />
-                {/* <button onClick={() => {
+                {this.state.isEdit ? (null) : (
+                    <CompanyDetailHolder
+                        currentCompany={theCurrentCompany}
+                        handleCompanyDelete={this._handleDelete}
+                        handleCompanyEdit={this._handleEdit}
+                        isEdit={this.state.isEdit} />
+                )}
+
+                <button onClick={() => {
                     this._handleAdd()
                 }}
-                >Add a new company</button> */}
+                >Add a new company</button>
 
-                {/* {this.state.shouldDisplayForm ? <NewCompanyForm
-                    changes={this.handleChange}
-                /> : null} */}
-                {/* <NewCompanyForm
-                    compData={this.state.newCompany}
-                    onChange={event => this._onChange(event.target.value)} /> */}
-                <form onSubmit={this.addCompany.bind(this)}>
-                    <input type="text" placeholder="Company Name" ref="company_name" />
-                    <br />
-                    <input type="text" placeholder="Steet" ref="street" />
-                    <input type="text" placeholder="City" ref="city" />
-                    <input type="text" placeholder="State" ref="state" />
-                    <input type="text" placeholder="Zipcode" ref="zip" />
-                    <br />
-                    <input type="text" placeholder="Company Phone Number" ref="company_phone" />
-                    <br />
-                    <input type="text" placeholder="Contact Name" ref="name" />
-                    <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
-                    <input type="text" placeholder="Contact Email" ref="email" />
-                    <br />
-                    <label>Select Status:
+                {this.state.shouldDisplayForm ?
+                    (<form onSubmit={this.addCompany.bind(this)}>
+                        <input type="text" placeholder="Company Name" ref="company_name" />
+                        <br />
+                        <input type="text" placeholder="Steet" ref="street" />
+                        <input type="text" placeholder="City" ref="city" />
+                        <input type="text" placeholder="State" ref="state" />
+                        <input type="text" placeholder="Zipcode" ref="zip" />
+                        <br />
+                        <input type="text" placeholder="Company Phone Number" ref="company_phone" />
+                        <br />
+                        <input type="text" placeholder="Contact Name" ref="name" />
+                        <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
+                        <input type="text" placeholder="Contact Email" ref="email" />
+                        <br />
+                        <label>Select Status:
                         <select placeholder="Status" ref="status">
-                            <option value="researching">Researching</option>
-                            <option value="pending">Pending</option>
-                            <option value="approved">Approved</option>
-                            <option value="declined">Declined</option>
-                        </select>
-                    </label>
-                    <br />
-                    <input type="text" placeholder="Current Profit" ref="current_profit" />
+                                <option value="researching">Researching</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="declined">Declined</option>
+                            </select>
+                        </label>
+                        <br />
+                        <input type="text" placeholder="Current Profit" ref="current_profit" />
 
-                    <button type="submit">Add company</button>
-                </form>
+                        <button type="submit">Add company</button>
+                    </form>) : null}
+
+
                 <CompaniesList
                     companies={this.state.data}
                     handleCompanySelection={this._selectCompany}
@@ -114,6 +114,8 @@ class Home extends Component {
             isEdit: true
         })
     }
+
+
 
     // Handling adding functionality
     _handleAdd = () => {
