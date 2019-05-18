@@ -28,18 +28,49 @@ class Home extends Component {
             return this.state.selectedCompany === theOne.id;
         })
 
+        console.log(theCurrentCompany)
 
         return (
 
             <div className="home">
                 <p>This is the Home</p>
-                {this.state.isEdit ? (null) : (
-                    <CompanyDetailHolder
-                        currentCompany={theCurrentCompany}
-                        handleCompanyDelete={this._handleDelete}
-                        handleCompanyEdit={this._handleEdit}
-                        isEdit={this.state.isEdit} />
-                )}
+                {this.state.isEdit ?
+                    (<form onSubmit={this.onEditSubmit.bind(this)}>
+                        <input type="text" placeholder={theCurrentCompany.company_name}
+                            defaultValue={theCurrentCompany.company_name}
+                            ref="company_name" />
+                        <br />
+                        <input type="text" placeholder="Steet" ref="street" />
+                        <input type="text" placeholder="City" ref="city" />
+                        <input type="text" placeholder="State" ref="state" />
+                        <input type="text" placeholder="Zipcode" ref="zip" />
+                        <br />
+                        <input type="text" placeholder="Company Phone Number" ref="company_phone" />
+                        <br />
+                        <input type="text" placeholder="Contact Name" ref="name" />
+                        <input type="text" placeholder="Contact Phone Number" ref="phone_number" />
+                        <input type="text" placeholder="Contact Email" ref="email" />
+                        <br />
+                        <label>Select Status:
+                      <select placeholder="Status" ref="status">
+                                <option value="researching">Researching</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="declined">Declined</option>
+                            </select>
+                        </label>
+                        <br />
+                        <input type="text" placeholder="Current Profit" ref="current_profit" />
+
+                        <button type="submit">Save</button>
+                    </form>)
+                    : (
+                        <CompanyDetailHolder
+                            currentCompany={theCurrentCompany}
+                            handleCompanyDelete={this._handleDelete}
+                            handleCompanyEdit={this._handleEdit}
+                            isEdit={this.state.isEdit} />
+                    )}
 
                 <button onClick={() => {
                     this._handleAdd()
@@ -162,6 +193,24 @@ class Home extends Component {
         this.refs.current_profit.value = ''
     }
 
+    onEditSubmit(event) {
+        event.preventDefault();
+        let id = this.state.selectedCompany
+        console.log(id)
+        let newUpdatedCompanies = this.state.data
+        newUpdatedCompanies = newUpdatedCompanies.map(co => {
+            if (co.id === id) {
+                co.company_name = this.refs.company_name.value
+
+            }
+            return co
+        });
+
+        this.setState({
+            data: newUpdatedCompanies
+        })
+
+    }
 
 
 
