@@ -12,9 +12,20 @@ class Home extends Component {
         super(props);
         this.state = {
             selectedCompany: mockData.companies[0].id,
-            data: mockData
+            data: mockData,
+            list_ids: []
         }
     }
+
+    componentDidMount() {
+        const comps = mockData.companies.map(comp => comp.id)
+        console.log(comps)
+        this.setState({
+            list_ids: comps
+        })
+    }
+
+
 
     render() {
 
@@ -35,6 +46,9 @@ class Home extends Component {
         )
     }
 
+
+
+
     _selectCompany = (id) => {
         // choose a note to show
         console.log(`you clicked ${id} `)
@@ -45,6 +59,11 @@ class Home extends Component {
 
     _handleDelete = (id) => {
         console.log(`${id} to be deleted`)
+        console.log(this.state.data.companies)
+        // companies = this.state.data.companies
+        this.setState({
+            data: this.state.data.companies.filter(company => company.id != id)
+        })
     }
 }
 
