@@ -15,6 +15,7 @@ class Home extends Component {
             selectedCompany: 1,
             data: mockData.companies,
             shouldDisplayForm: false,
+            isEdit: false
         };
 
     }
@@ -35,7 +36,8 @@ class Home extends Component {
                 <CompanyDetailHolder
                     currentCompany={theCurrentCompany}
                     handleCompanyDelete={this._handleDelete}
-                    handleCompanyEdit={this._handleEdit} />
+                    handleCompanyEdit={this._handleEdit}
+                    isEdit={this.state.isEdit} />
                 {/* <button onClick={() => {
                     this._handleAdd()
                 }}
@@ -108,6 +110,9 @@ class Home extends Component {
 
     _handleEdit = (id) => {
         console.log(`${id} this to be edited`)
+        this.setState({
+            isEdit: true
+        })
     }
 
     // Handling adding functionality
