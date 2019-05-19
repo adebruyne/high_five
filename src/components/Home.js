@@ -108,7 +108,7 @@ class Home extends Component {
                         <button className="add-btn" onClick={() => {
                             this._handleAdd()
                         }}
-                        ><FontAwesomeIcon icon={faPlus} /> Add new company</button>
+                        ><FontAwesomeIcon icon={faPlus} /> Add New Target</button>
                     </div>
 
                     {this.state.shouldDisplayForm ?
