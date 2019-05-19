@@ -32,3 +32,12 @@
     text-decoration: underline;
     color: rgb(51,52,53)
 }
+
+/* **************** MEDIA QUERIES ******************************** */
+/* IPAD */
+@media only screen and (min-width: 768px) {
+
+    .company-detail-header{
+        margin-bottom: 30px;
+    }
+}
