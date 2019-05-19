@@ -1,3 +1,15 @@
 .company-contacts{
     outline: darkred 1px solid;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: linear-gradient(to top, #0c9fff 13%, #66ccff 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.company-contacts-header{
+    text-align: center;
+    text-decoration: underline;
+
 }

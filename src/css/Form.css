@@ -1,0 +1,31 @@
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+input {
+   
+    width: 89%;
+    border: black 1px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+select {
+    width: 89%;
+    border: black 1px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.form-btn{
+    border-radius: 12px;
+    border: 4px solid rgb(12,159,255);
+    margin: 20px;
+    background: rgb(12,159,255);
+    color: white;
+    font-size: 1.5rem;
+}
