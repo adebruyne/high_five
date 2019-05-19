@@ -16,7 +16,7 @@ class CompanyDetailHolder extends Component {
 
             <div className='company-detail-holder'>
                 <div className="container">
-                    <h1>Company: <br /><strong>{this.props.currentCompany.company_name}</strong></h1>
+                    <h1 className="company-detail-header"><strong>{this.props.currentCompany.company_name}</strong></h1>
                     <CompanyDetails
                         status={this.props.currentCompany.status}
                         currentProfit={this.props.currentCompany.current_profit}

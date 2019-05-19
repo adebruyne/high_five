@@ -26,3 +26,7 @@
     flex-direction: row;
     justify-content: start;
 }
+.company-detail-header{
+    text-align:center;
+
+}
