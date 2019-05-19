@@ -3,6 +3,9 @@ import '../css/CompanyDetailHolder.css';
 import CompanyDetails from './CompanyDetails';
 import CompanyContacts from './CompanyContacts';
 import Chart from './Chart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
+
 class CompanyDetailHolder extends Component {
     constructor(props) {
         super(props);
@@ -12,18 +15,8 @@ class CompanyDetailHolder extends Component {
         return (
 
             <div className='company-detail-holder'>
-                <div>
-                    <h1>Company Detail Holder</h1>
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        this.props.handleCompanyDelete(this.props.currentCompany.id)
-                    }}>Delete this company</button>
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        this.props.handleCompanyEdit(this.props.currentCompany.id)
-                        // this.props.handleCompanyDelete(this.props.currentCompany.id)
-                    }}>Edit this company</button>
-                    <h2>{this.props.currentCompany.company_name}</h2>
+                <div className="container">
+                    <h1>Company: <br /><strong>{this.props.currentCompany.company_name}</strong></h1>
                     <CompanyDetails
                         status={this.props.currentCompany.status}
                         currentProfit={this.props.currentCompany.current_profit}
@@ -35,6 +28,19 @@ class CompanyDetailHolder extends Component {
                     />
                     <Chart
                         profit={this.props.currentCompany.finance} />
+                    <div className="btn-div">
+                        <button className="btn-edit-company" onClick={(e) => {
+                            e.preventDefault();
+                            this.props.handleCompanyEdit(this.props.currentCompany.id)
+                            // this.props.handleCompanyDelete(this.props.currentCompany.id)
+                        }}><FontAwesomeIcon icon={faEdit} /> Edit </button>
+                        <button className="btn-delete-company" onClick={(e) => {
+                            e.preventDefault();
+                            this.props.handleCompanyDelete(this.props.currentCompany.id)
+                        }}><FontAwesomeIcon icon={faTrashAlt} /> Delete </button>
+
+                    </div>
+
                 </div>
             </div>
         )

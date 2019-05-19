@@ -1,3 +1,28 @@
 .company-detail-holder{
     outline: 1px orange solid;
+    margin-top: 5%;
+}
+
+.btn-delete-company{
+    color: red;
+    border: 1px red solid;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-edit-company{
+    color: orange;
+    border: 1px orange solid;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
 }
