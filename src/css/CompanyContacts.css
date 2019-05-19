@@ -7,3 +7,9 @@
     border-radius: 12px;
     font-size: 20px;
 }
+
+.company-contacts-header{
+    text-align: center;
+    text-decoration: underline;
+
+}
