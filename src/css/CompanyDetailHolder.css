@@ -24,7 +24,8 @@
 .btn-div{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
+    padding:20px;
 }
 .company-detail-header{
     text-align:center;

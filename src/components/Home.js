@@ -66,8 +66,6 @@ class Home extends Component {
                         <button type="submit">Add company</button>
                     </form>) : null}
                 <div className="main-holder">
-
-
                     {this.state.isEdit ?
                         (<form onSubmit={this.onEditSubmit.bind(this)}>
                             <input type="text"

@@ -5,9 +5,16 @@
     justify-content: center;
     align-items: center;
     padding-top: 25px;
+    background: linear-gradient(to top, #0c9fff 13%, #66ccff 100%);
+}
+
+.companies-list-header{
+    text-decoration: underline;
+    color:white;
 }
 
 .companies-list-ul{
     margin: auto;
     padding: 0;
 }
+

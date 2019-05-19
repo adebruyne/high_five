@@ -21,7 +21,7 @@ class CompaniesList extends Component {
 
         return (
             <div className="companies-list ">
-                <h4>Your Targets</h4>
+                <h1><strong className="companies-list-header">Your Targets</strong></h1>
 
 
                 <ul className="companies-list-ul">
