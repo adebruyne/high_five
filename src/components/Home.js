@@ -116,7 +116,18 @@ class Home extends Component {
         )
     }
 
+    // ******************************
+    //  CREATE
+    // ******************************
 
+    //handles whether to show new form or not
+    _handleAdd = () => {
+        console.log('adding clicked')
+        this.setState({
+            shouldDisplayForm: true
+        })
+
+    }
     // handles form submission
     _onFormSubmit = (fields) => {
         console.log(fields)
@@ -143,6 +154,9 @@ class Home extends Component {
         })
 
     }
+    // *****************************
+    //  READ
+    // *****************************
 
     //handles company selection - selected company will be displayed in detail
     _selectCompany = (id) => {
@@ -151,31 +165,15 @@ class Home extends Component {
             selectedCompany: id
         });
     }
-
-    //handles deleting functionality
-    _handleDelete = (id) => {
-        // creates a new array of all companys expcept for the one selected, removing that one from the list
-        let newList = this.state.data.filter(company => company.id !== id)
-        this.setState({
-            data: newList,
-            selectedCompany: newList[0].id
-        })
-    }
+    // ******************************
+    //  UPDATE 
+    // ******************************
 
     //handles whether to show edit form or not
     _handleEdit = (id) => {
         this.setState({
             isEdit: true
         })
-    }
-
-    //handles whether to show new form or not
-    _handleAdd = () => {
-        console.log('adding clicked')
-        this.setState({
-            shouldDisplayForm: true
-        })
-
     }
 
     //handles submission of edited form 
@@ -212,7 +210,19 @@ class Home extends Component {
 
     }
 
+    // *****************************
+    //  DELETE
+    // ******************************
 
+    //handles deleting functionality
+    _handleDelete = (id) => {
+        // creates a new array of all companys expcept for the one selected, removing that one from the list
+        let newList = this.state.data.filter(company => company.id !== id)
+        this.setState({
+            data: newList,
+            selectedCompany: newList[0].id
+        })
+    }
 
 }
 
