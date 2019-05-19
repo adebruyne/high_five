@@ -141,14 +141,14 @@ class Home extends Component {
             state: fields.state,
             zip: fields.zip
         };
-        let company_phone = fields.company_phone;
+        let company_phone = fields.companyPhoneNumber;
         let company_contact = {
-            name: fields.name,
-            phone_number: fields.phone_number,
+            name: fields.contactName,
+            phone_number: fields.contactNumber,
             email: fields.email
         };
         let status = fields.status;
-        let current_profit = fields.current_profit
+        let current_profit = fields.currentProfit
         this.setState({
             data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit }),
             shouldDisplayForm: false

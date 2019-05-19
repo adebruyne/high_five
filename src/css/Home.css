@@ -6,7 +6,7 @@
    border: 2px green solid
 }
 
-.add-btn {
+/* .add-btn {
    border: 2px white solid;
    background-color: rgb(12,159,255);
   color: black;
@@ -15,6 +15,16 @@
   color: white;
   font-size:20px;
   font-weight: 800; 
+} */
+
+.add-btn{
+   border-radius: 12px;
+    border: 2px solid white;
+    margin: 20px;
+    background: rgb(12,159,255);
+    color: white;
+    font-size: 1.5rem;
+    width: 90%;
 }
 
 .btn-container {

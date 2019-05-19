@@ -21,12 +21,9 @@ class CompaniesList extends Component {
         return (
             <div className="companies-list ">
                 <h1><strong className="companies-list-header">Your Targets</strong></h1>
-
-
                 <ul className="companies-list-ul">
                     {allCompanies}
                 </ul>
-
             </div>
         )
     }
