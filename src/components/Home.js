@@ -24,53 +24,66 @@ class Home extends Component {
 
     render() {
         // find the company selected to display in detail view
-        const theCurrentCompany = this.state.data.find(theOne => {
+        let theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
+
         return (
             <div className="home">
+
                 <div className="main-holder">
                     {this.state.isEdit ?
-                        (<form onSubmit={this._onEditSubmit.bind(this)}>
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_name}
-                                defaultValue={theCurrentCompany.company_name}
-                                ref="company_name" />
+                        (<form
+                            className="edit-form container"
+                            onSubmit={this._onEditSubmit.bind(this)}>
+                            <h3>Edit Company</h3>
+                            <label>Company Name:
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_name}
+                                    defaultValue={theCurrentCompany.company_name}
+                                    ref="company_name" />
+                            </label>
                             <br />
+                            <label>Company Address:
                             <input type="text"
-                                placeholder={theCurrentCompany.company_address.street}
-                                defaultValue={theCurrentCompany.company_address.street}
-                                ref="street" />
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_address.city}
-                                defaultValue={theCurrentCompany.company_address.city}
-                                ref="city" />
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_address.state}
-                                defaultValue={theCurrentCompany.company_address.state}
-                                ref="state" />
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_address.zip}
-                                defaultValue={theCurrentCompany.company_address.zip}
-                                ref="zip" />
+                                    placeholder={theCurrentCompany.company_address.street}
+                                    defaultValue={theCurrentCompany.company_address.street}
+                                    ref="street" />
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_address.city}
+                                    defaultValue={theCurrentCompany.company_address.city}
+                                    ref="city" />
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_address.state}
+                                    defaultValue={theCurrentCompany.company_address.state}
+                                    ref="state" />
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_address.zip}
+                                    defaultValue={theCurrentCompany.company_address.zip}
+                                    ref="zip" />
+                            </label>
                             <br />
+                            <label>Company Phone Number:
                             <input type="text"
-                                placeholder={theCurrentCompany.company_phone}
-                                defaultValue={theCurrentCompany.company_phone}
-                                ref="company_phone" />
+                                    placeholder={theCurrentCompany.company_phone}
+                                    defaultValue={theCurrentCompany.company_phone}
+                                    ref="company_phone" />
+                            </label>
                             <br />
+                            <label>Company Contact:
                             <input type="text"
-                                placeholder={theCurrentCompany.company_contact.name}
-                                defaultValue={theCurrentCompany.company_contact.name}
-                                ref="name" />
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_contact.phone_number}
-                                defaultValue={theCurrentCompany.company_contact.phone_number}
-                                ref="phone_number" />
-                            <input type="text"
-                                placeholder={theCurrentCompany.company_contact.email}
-                                defaultValue={theCurrentCompany.company_contact.email}
-                                ref="email" />
+                                    placeholder={theCurrentCompany.company_contact.name}
+                                    defaultValue={theCurrentCompany.company_contact.name}
+                                    ref="name" />
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_contact.phone_number}
+                                    defaultValue={theCurrentCompany.company_contact.phone_number}
+                                    ref="phone_number" />
+                                <input type="text"
+                                    placeholder={theCurrentCompany.company_contact.email}
+                                    defaultValue={theCurrentCompany.company_contact.email}
+                                    ref="email" />
+                            </label>
                             <br />
                             <label>Select Status:
                       <select
@@ -85,13 +98,15 @@ class Home extends Component {
                                 </select>
                             </label>
                             <br />
+                            <label>Current Profit:
                             <input
-                                type="text"
-                                placeholder={theCurrentCompany.current_profit}
-                                defaultValue={theCurrentCompany.current_profit}
-                                ref="current_profit" />
+                                    type="text"
+                                    placeholder={theCurrentCompany.current_profit}
+                                    defaultValue={theCurrentCompany.current_profit}
+                                    ref="current_profit" />
+                            </label>
 
-                            <button type="submit">Save</button>
+                            <button className="save-btn" type="submit">Save</button>
                         </form>)
                         : (
                             <CompanyDetailHolder
@@ -108,13 +123,24 @@ class Home extends Component {
                     </div>
 
                     {this.state.shouldDisplayForm ?
-                        <Form onSubmit={fields => this._onFormSubmit(fields)} /> : null}
+                        <Form
+                            onSubmit={fields => this._onFormSubmit(fields)}
+
+                        /> : null}
                     <CompaniesList
                         companies={this.state.data}
                         handleCompanySelection={this._selectCompany} />
                 </div>
             </div>
         )
+    }
+
+
+
+    _newEditSubmit = (fields) => {
+        console.log(fields)
+        let id = this.state.selectedCompany
+        console.log(id)
     }
 
     // ******************************
@@ -165,6 +191,7 @@ class Home extends Component {
         this.setState({
             selectedCompany: id
         });
+        console.log(this.state.selectedCompany)
     }
     // ******************************
     //  UPDATE 
@@ -181,7 +208,6 @@ class Home extends Component {
     _onEditSubmit(event) {
         event.preventDefault();
         let id = this.state.selectedCompany
-        console.log(id)
         let newUpdatedCompanies = this.state.data
         newUpdatedCompanies = newUpdatedCompanies.map(company => {
             if (company.id === id) {

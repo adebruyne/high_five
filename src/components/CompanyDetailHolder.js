@@ -19,17 +19,21 @@ class CompanyDetailHolder extends Component {
             <div className='company-detail-holder'>
                 <div className="container">
                     <h1 className="company-detail-header"><strong>{this.props.currentCompany.company_name}</strong></h1>
-                    <CompanyDetails
-                        status={this.props.currentCompany.status}
-                        currentProfit={this.props.currentCompany.current_profit}
-                        address={this.props.currentCompany.company_address}
-                        phone={this.props.currentCompany.company_phone}
-                    />
-                    <CompanyContacts
-                        contact={this.props.currentCompany.company_contact}
-                    />
-                    <Chart
-                        profit={this.props.currentCompany.finance} />
+                    <div className="company-detail-div-fullscreen">
+                        <div className="company-detail-div2-fullscreen">
+                            <CompanyDetails
+                                status={this.props.currentCompany.status}
+                                currentProfit={this.props.currentCompany.current_profit}
+                                address={this.props.currentCompany.company_address}
+                                phone={this.props.currentCompany.company_phone}
+                            />
+                            <CompanyContacts
+                                contact={this.props.currentCompany.company_contact}
+                            />
+                        </div>
+                        <Chart
+                            profit={this.props.currentCompany.finance} />
+                    </div>
                     <div className="btn-div">
                         <button className="btn-edit-company" onClick={(e) => {
                             e.preventDefault();
