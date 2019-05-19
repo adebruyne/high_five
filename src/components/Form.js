@@ -82,10 +82,10 @@ class Form extends Component {
                             name="status"
                             onChange={e => this._change(e)}
                         >
-                            <option value="researching">Researching</option>
-                            <option value="pending">Pending</option>
-                            <option value="approved">Approved</option>
-                            <option value="declined">Declined</option>
+                            <option value="Researching">Researching</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Declined">Declined</option>
                         </select>
                     </label>
                     <label>

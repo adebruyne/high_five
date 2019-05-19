@@ -42,7 +42,8 @@ class CompanyDetailHolder extends Component {
                         }}><FontAwesomeIcon icon={faEdit} /> Edit </button>
                         <button className="btn-delete-company" onClick={(e) => {
                             e.preventDefault();
-                            this.props.handleCompanyDelete(this.props.currentCompany.id)
+                            if (window.confirm('Are you sure you wish to delete this item?'))
+                                this.props.handleCompanyDelete(this.props.currentCompany.id)
                         }}><FontAwesomeIcon icon={faTrashAlt} /> Delete </button>
 
                     </div>

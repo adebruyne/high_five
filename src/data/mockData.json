@@ -15,7 +15,7 @@
                 "phone_number": "567-987-0438",
                 "email": "r.southbound@faker.com"
             },
-            "status": "researching",
+            "status": "Researching",
             "finance": [
                 {
                     "year": "2010",
@@ -71,7 +71,7 @@
                 "phone_number": "534-127-7854",
                 "email": "b.kemosabi@faker.com"
             },
-            "status": "pending",
+            "status": "Pending",
             "finance": [
                 {
                     "year": "2010",
@@ -127,7 +127,7 @@
                 "phone_number": "567-987-0438",
                 "email": "r.southbound@faker.com"
             },
-            "status": "approved",
+            "status": "Approved",
             "finance": [
                 {
                     "year": "2010",
@@ -183,7 +183,7 @@
                 "phone_number": "127-077-0895",
                 "email": "g.gatewood@faker.com"
             },
-            "status": "declined",
+            "status": "Declined",
             "finance": [
                 {
                     "year": "2010",
@@ -222,7 +222,231 @@
                     "profit": "18459471"
                 }
             ],
-            "current_profit": "26243246"
+            "current_profit": "29243246"
+        },
+        {
+            "id": 5,
+            "company_name": "The Flow",
+            "company_address": {
+                "street": "98 Peachtree Corners Rd",
+                "city": "Atlanta",
+                "state": "Georgia",
+                "zip": "30316"
+            },
+            "company_phone": "808-999-1234",
+            "company_contact": {
+                "name": "Mr. Fountain",
+                "phone_number": "999-000-9876",
+                "email": "mr.fountain@faker.com"
+            },
+            "status": "Approved",
+            "finance": [
+                {
+                    "year": "2010",
+                    "profit": "1964137"
+                },
+                {
+                    "year": "2011",
+                    "profit": "65841235"
+                },
+                {
+                    "year": "2012",
+                    "profit": "85185403"
+                },
+                {
+                    "year": "2013",
+                    "profit": "67291541"
+                },
+                {
+                    "year": "2014",
+                    "profit": "41651853"
+                },
+                {
+                    "year": "2015",
+                    "profit": "56630804"
+                },
+                {
+                    "year": "2016",
+                    "profit": "60596217"
+                },
+                {
+                    "year": "2017",
+                    "profit": "19744802"
+                },
+                {
+                    "year": "2018",
+                    "profit": "98459471"
+                }
+            ],
+            "current_profit": "80243246"
+        },
+        {
+            "id": 6,
+            "company_name": "MooseJaw",
+            "company_address": {
+                "street": "680 Moose Crossing",
+                "city": "Burlington",
+                "state": "Vermont",
+                "zip": "07653"
+            },
+            "company_phone": "666-324-6786",
+            "company_contact": {
+                "name": "Jim Beam",
+                "phone_number": "867-999-0878",
+                "email": "j.beam@faker.com"
+            },
+            "status": "Researching",
+            "finance": [
+                {
+                    "year": "2010",
+                    "profit": "12409037"
+                },
+                {
+                    "year": "2011",
+                    "profit": "59608623"
+                },
+                {
+                    "year": "2012",
+                    "profit": "71123013"
+                },
+                {
+                    "year": "2013",
+                    "profit": "34790713"
+                },
+                {
+                    "year": "2014",
+                    "profit": "47464641"
+                },
+                {
+                    "year": "2015",
+                    "profit": "57863196"
+                },
+                {
+                    "year": "2016",
+                    "profit": "51857653"
+                },
+                {
+                    "year": "2017",
+                    "profit": "58093613"
+                },
+                {
+                    "year": "2018",
+                    "profit": "98795991"
+                }
+            ],
+            "current_profit": "98504744"
+        },
+        {
+            "id": 7,
+            "company_name": "REI",
+            "company_address": {
+                "street": "8764 Waterfalls Rd",
+                "city": "Seattle",
+                "state": "Washington",
+                "zip": "07879"
+            },
+            "company_phone": "566-384-6780",
+            "company_contact": {
+                "name": "Sally Jewel",
+                "phone_number": "887-909-0978",
+                "email": "s.jewel@faker.com"
+            },
+            "status": "Pending",
+            "finance": [
+                {
+                    "year": "2010",
+                    "profit": "120409037"
+                },
+                {
+                    "year": "2011",
+                    "profit": "79608623"
+                },
+                {
+                    "year": "2012",
+                    "profit": "71123013"
+                },
+                {
+                    "year": "2013",
+                    "profit": "84790713"
+                },
+                {
+                    "year": "2014",
+                    "profit": "87464641"
+                },
+                {
+                    "year": "2015",
+                    "profit": "57863196"
+                },
+                {
+                    "year": "2016",
+                    "profit": "91857653"
+                },
+                {
+                    "year": "2017",
+                    "profit": "58093613"
+                },
+                {
+                    "year": "2018",
+                    "profit": "68795991"
+                }
+            ],
+            "current_profit": "68504744"
+        },
+        {
+            "id": 8,
+            "company_name": "Women Who Hike",
+            "company_address": {
+                "street": "8577 Mountian Ln",
+                "city": "Baltimore",
+                "state": "Maryland",
+                "zip": "20226"
+            },
+            "company_phone": "334-894-7680",
+            "company_contact": {
+                "name": "Claire Hodges",
+                "phone_number": "887-909-0978",
+                "email": "c.hodges@faker.com"
+            },
+            "status": "Declined",
+            "finance": [
+                {
+                    "year": "2010",
+                    "profit": "10409037"
+                },
+                {
+                    "year": "2011",
+                    "profit": "9608623"
+                },
+                {
+                    "year": "2012",
+                    "profit": "11123013"
+                },
+                {
+                    "year": "2013",
+                    "profit": "24790713"
+                },
+                {
+                    "year": "2014",
+                    "profit": "17464641"
+                },
+                {
+                    "year": "2015",
+                    "profit": "27863196"
+                },
+                {
+                    "year": "2016",
+                    "profit": "11857653"
+                },
+                {
+                    "year": "2017",
+                    "profit": "18093613"
+                },
+                {
+                    "year": "2018",
+                    "profit": "18795991"
+                }
+            ],
+            "current_profit": "28504744"
         }
     ]
 }
