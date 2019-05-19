@@ -12,7 +12,7 @@ function App() {
       <div className="jumbo">
         <h1 className="main-header">High Fiver</h1>
         <hr />
-        <h4>
+        <h4 className="main-subheader">
           - Helping you hit your targets -
     </h4>
 

@@ -1,3 +1,13 @@
 .companies-list {
     outline: 1px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.companies-list-ul{
+    margin: auto;
+    padding: 0;
 }

@@ -21,7 +21,6 @@ class Home extends Component {
     }
 
     render() {
-        // console.log(this.state.selectedCompany)
         const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
@@ -67,10 +66,7 @@ class Home extends Component {
                         <button type="submit">Add company</button>
                     </form>) : null}
                 <div className="main-holder">
-                    <CompaniesList
-                        companies={this.state.data}
-                        handleCompanySelection={this._selectCompany}
-                    />
+
 
                     {this.state.isEdit ?
                         (<form onSubmit={this.onEditSubmit.bind(this)}>
@@ -142,7 +138,10 @@ class Home extends Component {
                                 handleCompanyEdit={this._handleEdit}
                                 isEdit={this.state.isEdit} />
                         )}
-
+                    <CompaniesList
+                        companies={this.state.data}
+                        handleCompanySelection={this._selectCompany}
+                    />
                 </div>
 
 

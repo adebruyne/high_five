@@ -7,19 +7,19 @@
 }
 
 .add-btn {
-   border: 2px rgb(51,52,53) solid;
+   border: 2px white solid;
    background-color: rgb(12,159,255);
   color: black;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 10px;
   color: white;
   font-size:20px;
-  
- 
+  font-weight: 800; 
 }
 
 .btn-container {
    display:flex;
    justify-content: center;
    padding: 10px;
+   background: linear-gradient(to top, #0c9fff 13%, #66ccff 100%);
 }

@@ -21,10 +21,10 @@ class CompaniesList extends Component {
 
         return (
             <div className="companies-list ">
-                <p>This is the Company List holder</p>
+                <h4>Your Targets</h4>
 
 
-                <ul>
+                <ul className="companies-list-ul">
                     {allCompanies}
                 </ul>
 
