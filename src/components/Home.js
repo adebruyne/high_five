@@ -4,13 +4,13 @@ import CompaniesList from './CompaniesList';
 import CompanyDetailHolder from './CompanyDetailHolder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import NewCompanyForm from './NewCompanyForm';
+
 import Form from './Form';
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
 
-
+// This is the main app component
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -19,25 +19,18 @@ class Home extends Component {
             data: mockData.companies,
             shouldDisplayForm: false,
             isEdit: false
-
         };
-
     }
 
     render() {
         const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })
-
-        console.log(theCurrentCompany)
-
         return (
-
             <div className="home">
-
                 <div className="main-holder">
                     {this.state.isEdit ?
-                        (<form onSubmit={this.onEditSubmit.bind(this)}>
+                        (<form onSubmit={this._onEditSubmit.bind(this)}>
                             <input type="text"
                                 placeholder={theCurrentCompany.company_name}
                                 defaultValue={theCurrentCompany.company_name}
@@ -117,14 +110,8 @@ class Home extends Component {
                         <Form onSubmit={fields => this._onFormSubmit(fields)} /> : null}
                     <CompaniesList
                         companies={this.state.data}
-                        handleCompanySelection={this._selectCompany}
-                    />
-
+                        handleCompanySelection={this._selectCompany} />
                 </div>
-
-
-
-
             </div>
         )
     }
@@ -157,38 +144,32 @@ class Home extends Component {
 
     }
 
-    // handles company selection - selected company will be displayed in detail
+    //handles company selection - selected company will be displayed in detail
     _selectCompany = (id) => {
-        // choose a note to show
-        console.log(`you clicked ${id} `)
+        // choose a company to show
         this.setState({
             selectedCompany: id
         });
     }
 
-    //Handles deleting functionality
+    //handles deleting functionality
     _handleDelete = (id) => {
-        // console.log(`${id} to be deleted`)
-        // console.log(this.state.data)
         // creates a new array of all companys expcept for the one selected, removing that one from the list
         let newList = this.state.data.filter(company => company.id !== id)
-        // console.log(newList)
         this.setState({
             data: newList,
             selectedCompany: newList[0].id
         })
     }
 
+    //handles whether to show edit form or not
     _handleEdit = (id) => {
-        console.log(`${id} this to be edited`)
         this.setState({
             isEdit: true
         })
     }
 
-
-
-    // Handling showing form functionality
+    //handles whether to show new form or not
     _handleAdd = () => {
         console.log('adding clicked')
         this.setState({
@@ -197,45 +178,8 @@ class Home extends Component {
 
     }
 
-
-    //Handings adding new Company form
-    addCompany(event) {
-        event.preventDefault();
-        let id = Math.floor((Math.random() * 1000) + 1);
-        let company_name = this.refs.company_name.value;
-        let company_address = {
-            street: this.refs.street.value,
-            city: this.refs.city.value,
-            state: this.refs.state.value,
-            zip: this.refs.zip.value
-        };
-        let company_phone = this.refs.company_phone.value;
-        let company_contact = {
-            name: this.refs.name.value,
-            phone_number: this.refs.phone_number.value,
-            email: this.refs.email.value
-        };
-        let status = this.refs.status.value;
-        let current_profit = this.refs.current_profit.value
-        this.setState({
-            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit })
-
-        })
-        console.log(this.state.data)
-        this.refs.company_name.value = '';
-        this.refs.street.value = '';
-        this.refs.city.value = '';
-        this.refs.state.value = '';
-        this.refs.zip.value = '';
-        this.refs.company_phone.value = '';
-        this.refs.name.value = '';
-        this.refs.phone_number.value = '';
-        this.refs.email.value = '';
-        this.refs.email.value = '';
-        this.refs.current_profit.value = ''
-    }
-
-    onEditSubmit(event) {
+    //handles submission of edited form 
+    _onEditSubmit(event) {
         event.preventDefault();
         let id = this.state.selectedCompany
         console.log(id)
