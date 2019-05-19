@@ -135,14 +135,6 @@ class Home extends Component {
         )
     }
 
-
-
-    _newEditSubmit = (fields) => {
-        console.log(fields)
-        let id = this.state.selectedCompany
-        console.log(id)
-    }
-
     // ******************************
     //  CREATE
     // ******************************
