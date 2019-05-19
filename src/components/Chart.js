@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
-
-
+import '../css/Chart.css';
+// This Component renders the chart
 class Chart extends Component {
     constructor(props) {
         super(props);
-
-
-
-
     }
-
-
-
-
     render() {
 
         let data = {
@@ -23,15 +15,15 @@ class Chart extends Component {
             datasets: [
                 {
                     label: 'Profit YOY',
-                    fill: true,
+                    fill: false,
                     lineTension: 0.1,
-                    backgroundColor: 'rgba(75,192,192,0.4)',
-                    borderColor: 'rgba(75,192,192,1)',
+                    backgroundColor: '#0c9fff',
+                    borderColor: '#0c9fff',
                     borderCapStyle: 'butt',
                     borderDash: [],
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
-                    pointBorderColor: 'rgba(75,192,192,1)',
+                    pointBorderColor: 'black',
                     pointBackgroundColor: '#fff',
                     pointBorderWidth: 1,
                     pointHoverRadius: 5,
@@ -47,11 +39,9 @@ class Chart extends Component {
             ]
 
         }
-        // console.log(this.state.data.labels)
-        // console.log(this.state.data.datasets[0].data)
+
         return (
             <div className="chart">
-                Chart component
                 <Line data={data} />
             </div>
         )
