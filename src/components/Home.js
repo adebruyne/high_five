@@ -114,14 +114,12 @@ class Home extends Component {
                     </div>
 
                     {this.state.shouldDisplayForm ?
-                        <NewCompanyForm
-
-                        /> : null}
+                        <Form onSubmit={fields => this._onFormSubmit(fields)} /> : null}
                     <CompaniesList
                         companies={this.state.data}
                         handleCompanySelection={this._selectCompany}
                     />
-                    <Form onSubmit={fields => this._onFormSubmit(fields)} />
+
                 </div>
 
 
@@ -131,6 +129,8 @@ class Home extends Component {
         )
     }
 
+
+    // handles form submission
     _onFormSubmit = (fields) => {
         console.log(fields)
         let id = Math.floor((Math.random() * 1000) + 1);
@@ -151,12 +151,13 @@ class Home extends Component {
         let status = fields.status;
         let current_profit = fields.current_profit
         this.setState({
-            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit })
+            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit }),
+            shouldDisplayForm: false
         })
 
     }
 
-
+    // handles company selection - selected company will be displayed in detail
     _selectCompany = (id) => {
         // choose a note to show
         console.log(`you clicked ${id} `)
@@ -218,6 +219,7 @@ class Home extends Component {
         let current_profit = this.refs.current_profit.value
         this.setState({
             data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit })
+
         })
         console.log(this.state.data)
         this.refs.company_name.value = '';
