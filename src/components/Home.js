@@ -167,8 +167,48 @@ class Home extends Component {
         };
         let status = fields.status;
         let current_profit = fields.currentProfit
+        let finance = [
+            {
+                year: 2010,
+                profit: fields.twentyten
+            },
+            {
+                year: 2011,
+                profit: fields.twentyeleven
+            },
+            {
+                year: 2012,
+                profit: fields.twentytwelve
+            },
+            {
+                year: 2013,
+                profit: fields.twentythirteen
+            },
+            {
+                year: 2014,
+                profit: fields.twentyfourteen
+            },
+            {
+                year: 2015,
+                profit: fields.twentyfifteen
+            },
+            {
+                year: 2016,
+                profit: fields.twentysixteen
+            },
+            {
+                year: 2017,
+                profit: fields.twentyseventeen
+            },
+            {
+                year: 2018,
+                profit: fields.twentyeighteen
+            },
+
+
+        ]
         this.setState({
-            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit }),
+            data: this.state.data.concat({ id, company_name, company_address, company_phone, company_contact, status, current_profit, finance }),
             shouldDisplayForm: false
         })
 

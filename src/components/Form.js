@@ -14,7 +14,17 @@ class Form extends Component {
             contactNumber: '',
             email: '',
             status: "Researching",
-            currentProfit: ''
+            currentProfit: '',
+            twentyten: '',
+            twentyeleven: '',
+            twentytwelve: '',
+            twentythirteen: '',
+            twentyfourteen: '',
+            twentyfifteen: '',
+            twentysixteen: '',
+            twenetyseventeen: '',
+            twentyeighteen: ''
+
         }
     }
     render() {
@@ -40,7 +50,7 @@ class Form extends Component {
                             placeholder="City"
                             name="city"
                             value={this.state.city}
-                            onChange={e => this.change(e)} />
+                            onChange={e => this._change(e)} />
                         <input
                             placeholder="State"
                             name="state"
@@ -96,7 +106,92 @@ class Form extends Component {
                             value={this.state.currentProfit}
                             onChange={e => this._change(e)} />
                     </label>
+                    <div>
+                        Year over Year Profit:
+                        <label>
+                            2010
+                        <input
+                                placeholder="0"
+                                name="twentyten"
+                                value={this.state.twentyten}
+                                onChange={e => this._change(e)} >
+                            </input>
+                        </label>
+                        <label>
+                            2011
+                        <input
+                                placeholder="0"
+                                name="twentyeleven"
+                                value={this.state.twentyeleven}
+                                onChange={e => this._change(e)} >
+                            </input>
+                        </label>
+                        <label>
+                            2012
+                        <input
+                                placeholder="0"
+                                name="twentytwelve"
+                                value={this.state.twentytwelve}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
+                        <label>
+                            2013
+                        <input
+                                placeholder="0"
+                                name="twentythirteen"
+                                value={this.state.twentythirteen}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
+                        <label>
+                            2014
+                        <input
+                                placeholder="0"
+                                name="twentyfourteen"
+                                value={this.state.twentyfourteen}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
+                        <label>
+                            2015
+                        <input
+                                placeholder="0"
+                                name="twentyfifteen"
+                                value={this.state.twentyfifteen}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
+                        <label>
+                            2016
+                        <input
+                                placeholder="0"
+                                name="twentysixteen"
+                                value={this.state.twentysixteen}
+                                onChange={e => this._change(e)}
+                            >
+                            </input>
+                        </label>
+                        <label>
+                            2017
+                        <input
+                                placeholder="0"
+                                name="twentyseventeen"
+                                value={this.state.twentyseventeen}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
+                        <label>
+                            2018
+                        <input
+                                placeholder="0"
+                                name="twentyeighteen"
+                                value={this.state.twenetyeighteen}
+                                onChange={e => this._change(e)}>
+                            </input>
+                        </label>
 
+                    </div>
 
                     <button
                         className="form-btn"
@@ -130,7 +225,16 @@ class Form extends Component {
             contactNumber: '',
             email: '',
             status: "Researching",
-            currentProfit: ''
+            currentProfit: '',
+            twentyten: '',
+            twentyeleven: '',
+            twentytwelve: '',
+            twentythirteen: '',
+            twentyfourteen: '',
+            twentyfifteen: '',
+            twentysixteen: '',
+            twenetyseventeen: '',
+            twentyeighteen: ''
         })
     }
 }
