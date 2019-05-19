@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/CompaniesListItem.css';
 
+// This component displays each individual company 
 class CompaniesListItem extends Component {
     render() {
         return (

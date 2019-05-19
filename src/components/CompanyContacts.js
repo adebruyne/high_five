@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../css/CompanyContacts.css';
 
+
+// This Component displays the selected company contact details
 class CompanyContacts extends Component {
     render() {
-        console.log(this.props)
         return (
             <div className="company-contacts">
                 <h3 className="company-contacts-header">Contact Details</h3>

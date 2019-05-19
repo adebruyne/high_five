@@ -9,7 +9,6 @@ class CompaniesList extends Component {
     render() {
         // loops through each item in the array and creates a list item view 
         let allCompanies = this.props.companies.map(company => {
-            // console.log(company);
             return < CompanyListItem
                 key={company.id}
                 id={company.id}

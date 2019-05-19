@@ -6,6 +6,8 @@ import Chart from './Chart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 
+
+//This component houses the detail view of the selcted company
 class CompanyDetailHolder extends Component {
     constructor(props) {
         super(props);

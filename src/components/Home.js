@@ -23,6 +23,7 @@ class Home extends Component {
     }
 
     render() {
+        // find the company selected to display in detail view
         const theCurrentCompany = this.state.data.find(theOne => {
             return this.state.selectedCompany === theOne.id;
         })

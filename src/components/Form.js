@@ -102,7 +102,7 @@ class Form extends Component {
     _onSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.state)
-        //clears all fields after submitting 
+        //clears all fields after submitting
         this.setState({
             companyName: '',
             street: '',
