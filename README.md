@@ -4,7 +4,7 @@
     <img src='readme_imgs/iphonesize.png' alt='homepage'></img>
 </p>
 
-# [Live Demo](url_goes_here)
+# [Live Demo](http://high-fiver.surge.sh/)
 
 
 ## The Mission:
