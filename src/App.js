@@ -4,10 +4,7 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrayingHands } from '@fortawesome/free-solid-svg-icons'
 
-
-
 function App() {
-
   return (
     <div className="App">
       <div className="jumbo">
@@ -16,7 +13,6 @@ function App() {
         <h4 className="main-subheader">
           - Here to help hit your targets -
     </h4>
-
       </div>
       <Home />
     </div>

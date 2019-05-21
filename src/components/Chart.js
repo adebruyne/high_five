@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import '../css/Chart.css';
+
+
 // This Component renders the chart
 class Chart extends Component {
     constructor(props) {
@@ -37,7 +39,6 @@ class Chart extends Component {
                     })
                 }
             ]
-
         }
 
         return (
@@ -46,6 +47,5 @@ class Chart extends Component {
             </div>
         )
     }
-
 }
 export default Chart;

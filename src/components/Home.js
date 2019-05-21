@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import '../css/Home.css';
 import CompaniesList from './CompaniesList';
 import CompanyDetailHolder from './CompanyDetailHolder';
+import Form from './Form';
+import '../css/Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
-import Form from './Form';
 
 // Pulls in mock json data
 let mockData = require("../data/mockData.json")
@@ -30,8 +29,8 @@ class Home extends Component {
 
         return (
             <div className="home">
-
                 <div className="main-holder">
+                    {/* Should display Edit form or company details */}
                     {this.state.isEdit ?
                         (<form
                             className="edit-form container"
@@ -115,18 +114,19 @@ class Home extends Component {
                                 handleCompanyEdit={this._handleEdit}
                                 isEdit={this.state.isEdit} />
                         )}
+                    {/* Add new Target button */}
                     <div className="btn-container">
                         <button className="add-btn" onClick={() => {
                             this._handleAdd()
                         }}
                         ><FontAwesomeIcon icon={faPlus} /> Add New Target</button>
                     </div>
-
+                    {/* Should display add new target form */}
                     {this.state.shouldDisplayForm ?
                         <Form
                             onSubmit={fields => this._onFormSubmit(fields)}
-
                         /> : null}
+                    {/* Comapny List */}
                     <CompaniesList
                         companies={this.state.data}
                         handleCompanySelection={this._selectCompany} />
@@ -223,7 +223,6 @@ class Home extends Component {
         this.setState({
             selectedCompany: id
         });
-        console.log(this.state.selectedCompany)
     }
     // ******************************
     //  UPDATE 
@@ -282,7 +281,6 @@ class Home extends Component {
             selectedCompany: newList[0].id
         })
     }
-
 }
 
 export default Home;

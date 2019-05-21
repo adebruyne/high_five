@@ -38,16 +38,13 @@ class CompanyDetailHolder extends Component {
                         <button className="btn-edit-company" onClick={(e) => {
                             e.preventDefault();
                             this.props.handleCompanyEdit(this.props.currentCompany.id)
-                            // this.props.handleCompanyDelete(this.props.currentCompany.id)
                         }}><FontAwesomeIcon icon={faEdit} /> Edit </button>
                         <button className="btn-delete-company" onClick={(e) => {
                             e.preventDefault();
                             if (window.confirm('Are you sure you wish to delete this item?'))
                                 this.props.handleCompanyDelete(this.props.currentCompany.id)
                         }}><FontAwesomeIcon icon={faTrashAlt} /> Delete </button>
-
                     </div>
-
                 </div>
             </div>
         )
