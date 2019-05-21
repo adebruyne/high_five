@@ -30,7 +30,7 @@
 
 
 <p align='center'>
-    <img src='readme_imgs/main_view.png' alt='#'></img>&nbsp;<img src='readme_imgs/chart.png' alt='#'></img>
+    <img src='readme_imgs/main_view.png' alt='' ></img>&nbsp;<img src='readme_imgs/chart.png' alt=''></img>
 </p>
 
 <br>
